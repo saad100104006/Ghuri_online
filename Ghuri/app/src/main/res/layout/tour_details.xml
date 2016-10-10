@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tabanim_maincontent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_above="@+id/footer"
+            android:layout_weight=".9"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.AppBarLayout
+                    android:id="@+id/tabanim_appbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                    <android.support.design.widget.CollapsingToolbarLayout
+                        android:id="@+id/collapsing_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:contentScrim="?attr/colorPrimary"
+                        app:expandedTitleMarginEnd="64dp"
+                        app:expandedTitleMarginStart="48dp"
+                        app:expandedTitleTextAppearance="@android:color/transparent"
+                        app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            >
+
+                            <ImageView
+
+                                android:id="@+id/circle2"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:fitsSystemWindows="true"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/logo"
+
+
+                                />
+
+
+                        </RelativeLayout>
+
+                        <android.support.v7.widget.Toolbar
+                            android:id="@+id/tabanim_toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_collapseMode="pin"
+                            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+                    </android.support.design.widget.CollapsingToolbarLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:fadingEdgeLength="32dp"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:requiresFadingEdge="vertical"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:requiresFadingEdge="vertical"
+                            android:text="Date"
+                            android:textColor="@color/black"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:requiresFadingEdge="vertical"
+                            android:text="Datsadsade"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+
+
+                            />
+
+
+                        <TextView
+                            android:id="@+id/description"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:fadingEdgeLength="60dp"
+                            android:maxLength="200"
+                            android:padding="10dp"
+                            android:requiresFadingEdge="vertical"
+                            android:text="Tanvir hossain sabnmbjnsajkdnsajkdn sajdnjasndjk sjdnjas jsah sadnskjadnjksad sajdnjkasndksa asjdbkjsand asjkdbnjksabd asjdnbksajndja aksjdnkjasndjasnd jandkjsandjsajdlasndsad sndsandsad jdhas asoudoashdohasodhas shoidas od fbr ghirtg tr rgjotr gotr kbjk bjkh kjkgk ad"
+                            android:textColor="@color/black"
+
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:gravity="bottom"
+                        android:orientation="vertical">
+
+                        <fragment
+                            android:id="@+id/map"
+                            android:name="com.google.android.gms.maps.MapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp" />
+
+
+                    </LinearLayout>
+
+
+
+
+                </android.support.design.widget.AppBarLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/header"
+            android:layout_weight=".1"
+            android:alpha=".8"
+            android:background="@color/black"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:theme="@style/Theme.Transparent"
+            android:weightSum="1">
+
+            <TextView
+
+                android:id="@+id/free"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="100dp"
+                android:layout_weight=".3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="FREE"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+
+                />
+
+            <Button
+
+                android:id="@+id/register"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".7"
+                android:background="@drawable/round_button"
+                android:text="BOOK NOW"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

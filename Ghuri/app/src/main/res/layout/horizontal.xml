@@ -131,6 +131,7 @@
                     android:layout_marginRight="5dp"
                     android:background="@drawable/price"
 
+
                     />
 
                 <TextView
@@ -141,7 +142,7 @@
                     android:layout_below="@+id/logo"
                     android:layout_marginBottom="5dp"
                     android:layout_toRightOf="@+id/calendar"
-                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="price"
                     android:textColor="@color/black"
                     android:textSize="10dp"

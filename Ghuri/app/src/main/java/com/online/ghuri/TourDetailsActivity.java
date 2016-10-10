@@ -10,21 +10,19 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,6 +32,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -47,13 +46,12 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Created by saad on 7/25/16.
  */
 
 
-public class DetailsActivity extends AppCompatActivity {
+public class TourDetailsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -67,8 +65,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private RecyclerView horizontal_recycler_view;
     private ArrayList<String> horizontalList, verticalList;
-    private HorizontalAdapter horizontalAdapter;
-    private static String url1 = "http://169.50.66.88/bdhotelsbackend/wp_fetch_hotel_by_id.php?hotelId=";
+    private static String url1 = "http://169.50.66.88/bdtourbackend/fetch_tour_by_id.php?tourlId=";
     private static String url;
     // private  VerticalAdapter verticalAdapter;
 
@@ -82,7 +79,7 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.tour_details);
 
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.tabanim_toolbar);
@@ -149,7 +146,7 @@ public class DetailsActivity extends AppCompatActivity {
         descriptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(DetailsActivity.this, TextDetailsActivity.class);
+                // Intent intent = new Intent(DetailsActivity.this, TextDetailsActivity.class);
                 //  intent.putExtra("text",description);
                 //startActivity(intent);
             }
@@ -289,72 +286,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
 
-    public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {
 
-        private List<room> horizontalList;
-
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-            //  public TextView txtView;
-            TextView title, person, minprice,price;
-
-            ImageView image;
-
-
-            public MyViewHolder(View view) {
-                super(view);
-
-                image = (ImageView) view.findViewById(R.id.logo);
-                //likeButton=(LikeButton) itemView. findViewById(R.id.heart);
-
-                title = (TextView) view.findViewById(R.id.title);
-                person = (TextView) view.findViewById(R.id.person);
-                minprice = (TextView) view.findViewById(R.id.minprice);
-                price = (TextView) view.findViewById(R.id.price);
-
-
-
-                // txtView = (TextView) view.findViewById(R.id.txtView);
-
-            }
-        }
-
-
-        public HorizontalAdapter(List<room> horizontalList) {
-            this.horizontalList = horizontalList;
-        }
-
-        @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.horizontal, parent, false);
-
-            return new MyViewHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(final MyViewHolder holder, final int position) {
-
-            room room1 = horizontalList.get(position);
-
-            holder.minprice.setText(room1.getdiscountedRate());
-            holder.person.setText(room1.getpersons());
-            holder.title.setText(room1.getroomTitle());
-            holder.price.setText(" BDT "+room1.getrate()+" ");
-
-
-
-
-            ImageView images = holder.image;
-
-            Picasso.with(DetailsActivity.this).load(room1.getroomImage()).into(images);
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return horizontalList.size();
-        }
-    }
 
     private void initilizeMap() {
         if (googleMap == null) {
@@ -413,48 +345,22 @@ public class DetailsActivity extends AppCompatActivity {
 
 
                     title = jsonRootObject.getString("title");
-                    description = jsonRootObject.getString("description");
                     featured_image_url = jsonRootObject.getString("featured_image_url");
                     rateMin = jsonRootObject.getString("rateMin");
                     address = jsonRootObject.getString("address");
                     latitudes = jsonRootObject.getString("latitude");
                     longitudes = jsonRootObject.getString("longitude");
-                    hotelPolicy = jsonRootObject.getString("hotelPolicy");
-                    additionalInfo = jsonRootObject.getString("additionalInfo");
+                    hotelPolicy = jsonRootObject.getString("phone");
+                    additionalInfo = jsonRootObject.getString("email");
 
 
                     //  String hotelImage=jsonRootObject.getString("hotelImage");
                     // String hotelPolicy=jsonRootObject.getString("hotelPolicy");
 
-                    room = jsonRootObject.getJSONArray("rooms");
 
 
-                    for (int i = 0; i < room.length(); i++) {
-                        JSONObject c = room.getJSONObject(i);
 
-                        String roomId = c.getString("roomId");
-                        String roomTitle = c.getString("roomTitle");
-                        String roomImage = c.getString("roomImage");
-                        String persons = c.getString("persons");
-                        String rate = c.getString("rate");
-                        String discountedRate = c.getString("discountedRate");
 
-                        room room1 = new room();
-
-                        room1.setroomId(roomId);
-                        room1.setroomTitle(roomTitle);
-                        room1.setpersons(persons+" person");
-                        room1.setroomImage(roomImage);
-                        room1.setrate(rate);
-                        room1.setdiscountedRate("BDT "+discountedRate);
-
-                        Log.e("room", roomTitle);
-
-                        System.out.println("saad   " + roomTitle);
-
-                        roomList.add(room1);
-
-                    }
 
                     // System.out.println("getdata::::::" + contacts);
 
@@ -481,7 +387,7 @@ public class DetailsActivity extends AppCompatActivity {
             //   prog.setVisibility(View.GONE);
             //   prog.setVisibility(View.GONE);
 
-            Picasso.with(DetailsActivity.this).load(featured_image_url).into(images);
+            Picasso.with(TourDetailsActivity.this).load(featured_image_url).into(images);
 
             latitude = Double.parseDouble(latitudes);
 
@@ -491,38 +397,32 @@ public class DetailsActivity extends AppCompatActivity {
             dates.setText(address);
             titiles.setText(title);
 
-            horizontalAdapter = new HorizontalAdapter(roomList);
-            LinearLayoutManager horizontalLayoutManagaer
-                    = new LinearLayoutManager(DetailsActivity.this, LinearLayoutManager.HORIZONTAL, false);
-            horizontal_recycler_view.setLayoutManager(horizontalLayoutManagaer);
-            horizontal_recycler_view.setAdapter(horizontalAdapter);
-
             initilizeMap();
 
 
 
             MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude)).title("Hello Maps ");
 
-       googleMap.addMarker(marker);
+            googleMap.addMarker(marker);
 
-        marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
 
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(
-                new LatLng(latitude, longitude)).zoom(12).build();
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(
+                    new LatLng(latitude, longitude)).zoom(12).build();
 
-        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
+            googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(LatLng latLng) {
 
-                Intent intent=new Intent(DetailsActivity.this,MapDetailsActivity.class);
-                intent.putExtra("lat",latitude);
-                intent.putExtra("lon",longitude);
-                startActivity(intent);
+                    Intent intent=new Intent(TourDetailsActivity.this,MapDetailsActivity.class);
+                    intent.putExtra("lat",latitude);
+                    intent.putExtra("lon",longitude);
+                    startActivity(intent);
 
-            }
-        });
+                }
+            });
 
 
 

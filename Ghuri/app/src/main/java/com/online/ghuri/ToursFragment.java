@@ -15,7 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.Toast;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -73,10 +73,10 @@ public class ToursFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
 
-                Intent i=new Intent(getActivity(),DetailsActivity.class);
+                Intent i=new Intent(getActivity(),TourDetailsActivity.class);
                 i.putExtra("id", hotelList.get(position).getId());
 
-                Toast.makeText(getActivity().getApplicationContext(), hotelList.get(position).getId(), Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getActivity().getApplicationContext(), hotelList.get(position).getId(), Toast.LENGTH_SHORT).show();
                 startActivity(i);
 
 
