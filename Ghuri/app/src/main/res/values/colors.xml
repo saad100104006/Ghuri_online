@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#a10f41</color>
+
+    <color name="black">#000</color>
+    <color name="orange">#FA0</color>
+    <color name="white">#FFF</color>
+    <!--Indigo 500-->
+    <color name="primary_500">#42B273</color>
+    <!--Indigo 700-->
+    <color name="primary_700">#FB5E81</color>
+
+    <color name="duskYellow">#efe00d</color>
+
+
+    <color name="lightGrey">#d6d5ce</color>
+</resources>
+
+
