@@ -24,13 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpEntity;
@@ -389,15 +384,15 @@ public class TourDetailsActivity extends AppCompatActivity {
 
             Picasso.with(TourDetailsActivity.this).load(featured_image_url).into(images);
 
-            latitude = Double.parseDouble(latitudes);
+           // latitude = Double.parseDouble(latitudes);
 
-            longitude = Double.parseDouble(longitudes);
+        //    longitude = Double.parseDouble(longitudes);
 
             descriptions.setText(description);
             dates.setText(address);
             titiles.setText(title);
 
-            initilizeMap();
+            /*initilizeMap();
 
 
 
@@ -422,7 +417,7 @@ public class TourDetailsActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-            });
+            });*/
 
 
 
