@@ -40,9 +40,9 @@
 
             <TextView
                 android:id="@+id/price"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="25dp"
-                android:background="#a8aeac"
+                android:background="#8b918e"
                 android:gravity="center"
                 android:text="BDT "
 

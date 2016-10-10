@@ -339,7 +339,7 @@ public class DetailsActivity extends AppCompatActivity {
             holder.minprice.setText(room1.getdiscountedRate());
             holder.person.setText(room1.getpersons());
             holder.title.setText(room1.getroomTitle());
-            holder.price.setText(room1.getrate());
+            holder.price.setText(" BDT "+room1.getrate()+" ");
 
 
 
@@ -482,8 +482,6 @@ public class DetailsActivity extends AppCompatActivity {
             //   prog.setVisibility(View.GONE);
 
             Picasso.with(DetailsActivity.this).load(featured_image_url).into(images);
-
-
 
             latitude = Double.parseDouble(latitudes);
 
